@@ -1,0 +1,16 @@
+{
+  "name": "local-repo",
+  "plugins": [
+    {
+      "name": "journal-entry-analysis",
+      "source": {
+        "source": "local",
+        "path": "./src"
+      },
+      "policy": {
+        "installation": "AVAILABLE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
