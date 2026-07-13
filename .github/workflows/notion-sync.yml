@@ -1,0 +1,18 @@
+name: Notion Sync
+# push마다 노션 포트폴리오 프로젝트 페이지의 '업데이트 로그'에 변경 요약을 기록한다.
+# 필요 Secret: NOTION_TOKEN (노션 내부 통합 토큰, 페이지에 통합 연결 필요)
+on:
+  push:
+    branches: [main, master]
+jobs:
+  notion-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update Notion project page
+        env:
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          NOTION_PAGE_ID: 3989016d-66a9-8157-8a2d-de511e02ddee
+          COMMITS_JSON: ${{ toJSON(github.event.commits) }}
+          HEAD_SHA: ${{ github.sha }}
+        run: python3 .github/scripts/notion_sync.py
