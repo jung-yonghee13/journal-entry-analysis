@@ -21,8 +21,8 @@ import urllib.error
 import urllib.request
 
 API = "https://api.notion.com/v1"
-TOKEN = os.environ.get("NOTION_TOKEN", "").strip()
-PAGE_ID = os.environ.get("NOTION_PAGE_ID", "").strip()
+TOKEN = os.environ.get("NOTION_TOKEN", "").strip().strip("﻿").strip()
+PAGE_ID = os.environ.get("NOTION_PAGE_ID", "").strip().strip("﻿").strip()
 COMMITS = os.environ.get("COMMITS_JSON", "[]")
 SHA = os.environ.get("HEAD_SHA", "")[:7]
 
@@ -98,6 +98,14 @@ def header_row():
 
 
 def main():
+    # 커밋 메시지에 [skip notion]이 있으면 기록하지 않는다 (CI 설정 등 메타 커밋용)
+    try:
+        msgs = [c.get("message", "") for c in json.loads(COMMITS)]
+    except (ValueError, TypeError):
+        msgs = []
+    if msgs and all("[skip notion]" in m for m in msgs):
+        print("[skip notion] 마커 — 노션 기록 건너뜀")
+        return 0
     if not TOKEN or not PAGE_ID:
         print("NOTION_TOKEN 또는 NOTION_PAGE_ID 미설정 — 동기화 건너뜀 (Secret 설정 후 자동 활성화)")
         return 0
