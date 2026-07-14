@@ -1,5 +1,7 @@
 # journal-entry-analysis — 분개장 분석 플러그인
 
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg) ![Detection](https://img.shields.io/badge/%ED%83%90%EC%A7%80%EC%84%B1%EB%8A%A5-27%2F27-brightgreen.svg)
+
 > 📊 **프로젝트 상세 소개(개발 과정·기술적 의사결정)**: [노션 포트폴리오](https://app.notion.com/p/3989016d66a981578a2dde511e02ddee)
 
 ## 프로젝트 개요
