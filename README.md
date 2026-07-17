@@ -2,8 +2,6 @@
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg) ![Python](https://img.shields.io/badge/Python-3.10%2B-blue.svg)
 
-> 📊 **프로젝트 상세 소개(개발 과정·기술적 의사결정)**: [노션 포트폴리오](https://app.notion.com/p/3989016d66a981578a2dde511e02ddee)
-
 ## 프로젝트 개요
 회사의 분개장(전표) 파일을 넣으면, AI가 이상 전표를 자동으로 찾아내고 계정과목별 추세·현금흐름·재무비율 분석과 후속 조치 권고까지 담은 **분개장 분석 보고서**(PDF·Word·Markdown)를 만들어 드립니다. 감사 실무는 물론 기업 내부 점검이나 경영 분석에도 두루 쓸 수 있도록 설계했고, ERP마다 제각각인 분개장 헤더와 컬럼명은 자동으로 맞춰 줍니다. CSV와 Excel을 모두 지원합니다.
 
